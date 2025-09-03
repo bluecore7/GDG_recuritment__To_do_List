@@ -1,50 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-  <nav><h1>To Do List</h1></nav>
-  <hr>
-  <div class="task-list" id="taskList"></div>
-  <button id="plus">+</button>
+    <nav>
+        <h1>To Do List</h1>
+        <p id="date-display"></p>
+    </nav>
+    <hr>
+    <div class="task-list" id="taskList"></div>
+    <button id="plus">+</button>
 
-  <div class="popup" id="popup">
-    <h2>Add Task</h2>
-    <input type="text" id="taskName" placeholder="Task Name" required>
+    <div class="popup" id="popup">
+        <h2>Add Task</h2>
+        <input type="text" id="taskName" placeholder="Task Name" required>
 
-    <label>Time:</label>
-    <div style="display: flex; gap: 5px;">
-      <select id="oneToTwelve"><option value="">--Hour--</option></select>
-      <select id="zeroToSixty"><option value="">--Min--</option></select>
-      <select id="ampm"><option value="AM">AM</option><option value="PM">PM</option></select>
+        <label>Time:</label>
+        <div style="display: flex; gap: 5px;">
+            <select id="oneToTwelve">
+                <option value="">--Hour--</option>
+            </select>
+            <select id="zeroToSixty">
+                <option value="">--Min--</option>
+            </select>
+            <select id="ampm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
+
+        <textarea id="description" rows="4" placeholder="Description"></textarea>
+
+        <label>Priority:</label>
+        <select id="priority">
+            <option value="">--Select--</option>
+            <option value="urgent">Urgent</option>
+            <option value="important">Important</option>
+            <option value="not-important">Not Important</option>
+            <option value="useless">Useless</option>
+        </select>
+
+        <button id="addTaskBtn">Add Task</button>
+        <button id="closeTaskBtn" onclick="closePopup()">Close</button>
+        <script>
+            function closePopup() {
+                document.getElementById("popup").style.display = "none";
+            }
+        </script>
     </div>
-
-    <textarea id="description" rows="4" placeholder="Description"></textarea>
-
-    <label>Priority:</label>
-    <select id="priority">
-      <option value="">--Select--</option>
-      <option value="urgent">Urgent</option>
-      <option value="important">Important</option>
-      <option value="not-important">Not Important</option>
-      <option value="useless">Useless</option>
-    </select>
-
-    <button id="addTaskBtn">Add Task</button>
-    <button id="closeTaskBtn" onclick="closePopup()">Close</button>
-    <script>
-        function closePopup(){
-             document.getElementById("popup").style.display = "none";
-        }
-    </script>
-  </div>
 </body>
+
 </html>

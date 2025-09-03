@@ -20,6 +20,9 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 renderTasks();
 
 document.getElementById('addTaskBtn').addEventListener('click', () => {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', options);
     const taskName = document.getElementById('taskName').value.trim();
     const hour = document.getElementById('oneToTwelve').value;
     const min = document.getElementById('zeroToSixty').value;
@@ -29,13 +32,13 @@ document.getElementById('addTaskBtn').addEventListener('click', () => {
 
     if (!taskName) { alert("Please enter a task name"); return; }
 
-    const task = { taskName, hour, min, ampm, desc, priority };
+    const task = { taskName, hour, min, ampm, desc, priority ,date:dateStr};
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
     renderTasks();
 
-    
+
     document.getElementById('taskName').value = "";
     document.getElementById('oneToTwelve').value = "";
     document.getElementById('zeroToSixty').value = "";
@@ -54,7 +57,7 @@ function renderTasks() {
           <h3>${task.taskName} 
             <span class="priority ${task.priority}">${task.priority.replace('-', ' ')}</span>
           </h3>
-          <small>${task.hour}:${task.min.toString().padStart(2, '0')} ${task.ampm}</small>
+          <small>${task.date} • ${task.hour}:${task.min.toString().padStart(2, '0')} ${task.ampm}</small>
           <p>${task.desc}</p>
           <button class="delete-btn" onclick="deleteTask(${index})">X</button>
         `;
@@ -68,4 +71,12 @@ function deleteTask(index) {
     renderTasks();
 }
 
+function showDateInNav() {
+  const dateDisplay = document.getElementById("date-display");
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const today = new Date().toLocaleDateString('en-US', options);
+  dateDisplay.textContent = today;
+}
+
+showDateInNav();
 window.deleteTask = deleteTask;
