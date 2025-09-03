@@ -39,6 +39,12 @@
     </select>
 
     <button id="addTaskBtn">Add Task</button>
+    <button id="closeTaskBtn" onclick="closePopup()">Close</button>
+    <script>
+        function closePopup(){
+             document.getElementById("popup").style.display = "none";
+        }
+    </script>
   </div>
 </body>
 </html>
