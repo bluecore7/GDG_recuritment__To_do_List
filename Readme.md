@@ -15,7 +15,7 @@ You can add tasks with a time, description, and priority, and the app saves ever
 - Tasks are saved in **local storage**
 - Responsive and clean design
 
-##Screenshot
+## Screenshot
 <img width="1359" height="599" alt="Screenshot 2025-09-03 133656" src="https://github.com/user-attachments/assets/75d301c6-2e73-49f0-ba39-945a62b8032a" />
 
 <img width="1365" height="597" alt="Screenshot 2025-09-03 133814" src="https://github.com/user-attachments/assets/e3bd1a4b-6b4d-4b8a-b124-4150983d4602" />
